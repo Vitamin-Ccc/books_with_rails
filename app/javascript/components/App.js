@@ -25,6 +25,10 @@ const App = () => {
     setShowNewForm(!showNewForm);
   };
 
+  const addBook = (book) => {
+    setBooks
+  }
+
 
   return (
     <div style = {{border: '2px solid red', maxWidth: '800px', margin: "auto"}}>
