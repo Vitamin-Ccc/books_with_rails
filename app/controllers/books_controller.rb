@@ -23,7 +23,7 @@ class BooksController < ApplicationController
   end
 
   def update
-    if(@book.udpate(book_params))
+    if(@book.update(book_params))
       render json: @book
     else
       render json: {errors: @book.errors.full_messages}, status: 422
