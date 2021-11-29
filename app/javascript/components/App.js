@@ -26,7 +26,7 @@ const App = () => {
   };
 
   const addBook = (book) => {
-    setBooks
+    setBooks([book, ...books]);
   }
 
 
@@ -34,7 +34,7 @@ const App = () => {
     <div style = {{border: '2px solid red', maxWidth: '800px', margin: "auto"}}>
       <h1>App component (SPA Here)</h1>
       <button onClick = {toggleNewForm}>{showNewForm ? "Cancel" : "New Book"}</button>
-      {showNewForm && <BookForm />}
+      {showNewForm && <BookForm addBook = {addBook}/>}
       {/* Book: React Component; books: name of the props; {books}: value, book state  */}
       <Books books = {books} />
     </div>
