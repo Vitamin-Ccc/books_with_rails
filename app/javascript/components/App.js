@@ -29,6 +29,12 @@ const App = () => {
     setBooks([book, ...books]);
   };
 
+  const deleteBook = async (id) => {
+    let response = await axios.get(`/books/${id}`);
+    let filteredBooks = books.filter((b) => b.id !== id);
+    setBooks(filteredBooks);
+  }
+
   const updateBook = (book) => {
     let updatedBooks = books.map((b) => (b.id === book.id ? book : b));
     setBooks(updatedBooks);
@@ -41,7 +47,7 @@ const App = () => {
       <button onClick = {toggleNewForm}>{showNewForm ? "Cancel" : "New Book"}</button>
       {showNewForm && <BookForm addBook = {addBook}/>}
       {/* Book: React Component; books: name of the props; {books}: value, book state  */}
-      <Books books = {books} updateBook = {updateBook}/>
+      <Books books = {books} updateBook = {updateBook} deleteBook = {deleteBook}/>
     </div>
   );
 };

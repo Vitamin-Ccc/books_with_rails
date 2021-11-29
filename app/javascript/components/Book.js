@@ -2,7 +2,7 @@ import React from "react";
 import BookForm from "./BookForm"
 
 const Book = (props) => {
-  const {title, author, id, updateBook} = props;
+  const {title, author, id, updateBook, deleteBook} = props;
   return (
     <div>
       <h1>{title}</h1>
@@ -14,6 +14,8 @@ const Book = (props) => {
         author = {author}
         updateBook = {updateBook}
       />
+      <hr />
+      <button onClick = {() => deleteBook(id)}>DELETE</button>
     </div>
   );
 };
